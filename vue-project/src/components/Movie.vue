@@ -1,5 +1,5 @@
 <script setup>
-    defineProps({
+    let props = defineProps({
         title: {
             type: String,
             required: true
@@ -16,7 +16,10 @@
 </script>
 <template>
     <li class="list-group-item">
-        <label>{{ title }}, {{ rating }}/5</label>
-        <button class="btn btn-sm btn-danger" :data-id="id">X</button>
+        <span>{{title}}</span>
+        <span>
+            <img v-for="rating of props.rating" src="./images/star.png" alt="">
+        </span>
+        <button class="btn btn-lg btn-danger" :data-id="id">X</button>
     </li>
 </template>

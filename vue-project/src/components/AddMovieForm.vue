@@ -1,30 +1,24 @@
 <script setup>
-    import { ref, onMounted } from 'vue';
-    import Movies from './Movies.vue';
+    //import Movies from './Movies.vue';
     
     const emit = defineEmits(['add-movie']);
-    const movies = []
 
     function addMovie(object) {
-        let title = document.querySelector("#title-field");
-        let rating = document.querySelector("#rating-field");
-        const movie = {
-            title: title.value,
-            rating: rating.value
-        }
-        title.value = "";
-        rating.value = "";
-        console.log(title, rating);
-
-        movies.push(movie);
-
-        localStorage.setItem('movies', JSON.stringify(movies));
-
+        document.getElementById("add-movie-form").reset();
         emit("add-movie", object);
-        
     }
- 
-    let latestID = 0;
+
+    function submit(e) {
+        e.preventDefault();
+        const title = document.querySelector("#title-field");
+        const rating = document.querySelector("#rating-field");
+        if (!(title.value === "" || rating.value == 0)) {
+            let object = {title: title.value, rating: rating.value};
+            addMovie(object);
+        } else {
+            alert("Fill in the correct information");
+        }
+    }
 
 </script>
 <template>
@@ -37,7 +31,6 @@
                 <input type="text" id="title-field" class="form-control">
 
                 <label for="rating-field">Rating:</label>
-
                 <select type="text" id="rating-field" class="form-control">
                     <option value="0">Choose rating...</option>
                     <option value="1">1</option>
@@ -46,10 +39,7 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-
-                <input type="button" class="btn btn-success mt-3" value="Save movie" @click="addMovie">
-
+                <input type="button" class="btn btn-success mt-3" value="Save movie" @click="submit">
             </fieldset>
         </form>
-        <Movies v-for="film in films" :title="film.title"/>
 </template>
