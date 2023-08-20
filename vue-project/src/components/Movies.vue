@@ -24,7 +24,7 @@
     <div class="container">
         <AddMovieForm @add-movie="addMovie"/>
         <h2>My movies</h2>
-        <ul id="movies" class="border">
+        <ul id="movies">
             <Movie v-for="movie in movies" :title="movie.title" :rating="movie.rating" :id="movie.id" @click="deleteMovie"></Movie>
         </ul>
     </div>
