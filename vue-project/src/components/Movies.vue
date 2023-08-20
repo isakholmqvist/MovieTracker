@@ -21,17 +21,21 @@
 
 </script>
 <template>
-    <AddMovieForm @add-movie="addMovie"/>
-    <h2>My movies</h2>
-    <ul id="movies">
-        <Movie v-for="movie in movies" :title="movie.title" :rating="movie.rating" :id="movie.id" @click="deleteMovie"></Movie>
-    </ul>
+    <div class="container">
+        <AddMovieForm @add-movie="addMovie"/>
+        <h2>My movies</h2>
+        <ul id="movies">
+            <Movie v-for="movie in movies" :title="movie.title" :rating="movie.rating" :id="movie.id" @click="deleteMovie"></Movie>
+        </ul>
+    </div>
 </template>
 
 <style scoped>
+
+
 #movies {
-    padding: 0;
-    margin: 0;
+    padding: 1px;
+    margin: 0px;
 }
 
 #movies > li {
@@ -43,7 +47,7 @@
 }
 #movies > li > img {
     float: right;
-    height: 25px;
+    height: 5px;
     margin-left: 5px;
 }
 </style>

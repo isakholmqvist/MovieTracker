@@ -1,6 +1,4 @@
 <script setup>
-    //import Movies from './Movies.vue';
-    
     const emit = defineEmits(['add-movie']);
 
     function addMovie(object) {
@@ -22,7 +20,8 @@
 
 </script>
 <template>
-    <h1>Min filmlista</h1>
+    <div class="container">
+        <h1>Min filmlista</h1>
         <form id="add-movie-form">
             <fieldset>
                 <legend>Add a movie</legend>
@@ -37,9 +36,10 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option valre="5">5</option>
                 </select>
                 <input type="button" class="btn btn-success mt-3" value="Save movie" @click="submit">
             </fieldset>
         </form>
+    </div>
 </template>

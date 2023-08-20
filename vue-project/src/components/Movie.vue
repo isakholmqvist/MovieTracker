@@ -5,21 +5,24 @@
             required: true
         },
         rating: {
-            type: String,
+            type: Number,
             required: true
         },
         id : {
-            type: String,
+            type: Number,
             required: true
         }
     })
 </script>
 <template>
-    <li class="list-group-item">
+        <li class="list-group-item">
         <span>{{title}}</span>
-        <span>
-            <img v-for="rating of props.rating" src="./images/star.png" alt="">
-        </span>
+        <div class="row">
+            <span>
+                <img v-for="rating of props.rating" src="./images/star.png" alt="" class="img-fluid">
+            </span>
+        </div>
         <button class="btn btn-lg btn-danger" :data-id="id">X</button>
-    </li>
+        </li>
 </template>
+
