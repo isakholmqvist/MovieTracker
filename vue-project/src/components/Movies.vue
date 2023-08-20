@@ -8,10 +8,9 @@
     let latestID = 0;
 
     function addMovie(movie) {
-        movie.rating = parseInt(movie.rating);
         movie.id = latestID++;
+        movie.rating = parseInt(movie.rating);
         movies.value.push(movie);
-        console.log(movies.value);
     }
 
     function deleteMovie(e) {
@@ -44,6 +43,7 @@
     margin: 5px;
     padding: 20px;
     box-shadow: 0 0 5px #999;
+    overflow:auto;
 }
 #movies > li > img {
     float: right;
